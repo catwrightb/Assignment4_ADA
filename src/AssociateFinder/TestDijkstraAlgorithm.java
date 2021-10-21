@@ -1,6 +1,7 @@
 package AssociateFinder;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import Graph.*;
 
 class TestDijkstraAlgorithm {
 
