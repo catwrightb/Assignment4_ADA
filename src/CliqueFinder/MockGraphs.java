@@ -113,6 +113,12 @@ public class MockGraphs {
         edges.add(new Edge(vertices.get(1), vertices.get(6), .2));
         edges.add(new Edge(vertices.get(6), vertices.get(1), .2));
 
+        // Others
+        edges.add(new Edge(vertices.get(2), vertices.get(6), .6));
+        edges.add(new Edge(vertices.get(6), vertices.get(2), .6));
+        edges.add(new Edge(vertices.get(3), vertices.get(5), .7));
+        edges.add(new Edge(vertices.get(5), vertices.get(3), .7));
+
         return new Graph(vertices, edges);
     }
 
