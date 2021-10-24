@@ -1,3 +1,6 @@
+/**
+ * Main testing class for Bron-Kerbosch Algorithm.
+ */
 package CliqueFinder;
 
 import CliqueFinder.Graph.Graph;

@@ -1,3 +1,7 @@
+/**
+ * Singleton class to provide mock data for graphs.
+ *
+ */
 package CliqueFinder;
 
 import CliqueFinder.Graph.*;
