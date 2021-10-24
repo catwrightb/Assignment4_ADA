@@ -1,4 +1,4 @@
-package Graph;
+package AssociateFinder;
 
 public class Vertex {
     final private String id;
@@ -46,7 +46,5 @@ public class Vertex {
     public String toString() {
         return name;
     }
-
-    public Vertex getCopy() { return new Vertex(id, name); }
 
 }

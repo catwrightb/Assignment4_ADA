@@ -1,4 +1,4 @@
-package Graph;
+package AssociateFinder;
 
 public class Edge  {
     private final String id;
@@ -32,5 +32,5 @@ public class Edge  {
         return source + " " + destination;
     }
 
-    public Edge getCopy() { return new Edge(id, source.getCopy(), destination.getCopy(), weight); }
+
 }
