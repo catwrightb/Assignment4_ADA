@@ -1,8 +1,11 @@
-package Cluster;
+package DendrogamCluster;
 
 import java.util.*;
 
-public class DistanceMap {
+/*
+* class to help map the distances for buliding the cluster graph by removing and adding clusters from hierarchy
+* */
+public class MappedDistances {
 
     private Map<String, Item> pairHash;
     private PriorityQueue<Item> data;
@@ -28,7 +31,7 @@ public class DistanceMap {
         }
     }
 
-    public DistanceMap() {
+    public MappedDistances() {
         data = new PriorityQueue<Item>();
         pairHash = new HashMap<String, Item>();
     }
@@ -65,7 +68,6 @@ public class DistanceMap {
             return false;
         }
         remove.removed = true;
-        // data.remove(remove);  // bottleneck
         return true;
     }
 
@@ -84,18 +86,6 @@ public class DistanceMap {
         }
     }
 
-    /**
-     * Peak into the minimum distance
-     * @return
-     */
-    public Double minDist()
-    {
-        Item peek = data.peek();
-        if (peek != null)
-            return peek.pair.getLinkageDistance();
-        else
-            return null;
-    }
 
     /**
      * Compute some kind of unique ID for a given cluster pair.
@@ -111,14 +101,11 @@ public class DistanceMap {
 
     private String hashCodePairNames(String lName, String rName) {
         if (lName.compareTo(rName) < 0) {
-            return lName + "~~~" + rName;//getlCluster().hashCode() + 31 * (getrCluster().hashCode());
+            return lName + "~~~" + rName;
         } else {
-            return rName + "~~~" + lName;//return getrCluster().hashCode() + 31 * (getlCluster().hashCode());
+            return rName + "~~~" + lName;
         }
     }
 
-    @Override
-    public String toString() {
-        return data.toString();
-    }
+
 }

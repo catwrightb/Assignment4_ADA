@@ -1,51 +1,25 @@
-
-
-package Cluster;
+package DendrogamCluster;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class HierarchyBuilder {
+public class ClusterHierarchy {
 
-    private DistanceMap distances;
+    private MappedDistances distances;
     private List<Cluster> clusters;
     private int globalClusterIndex = 0;
 
-    public DistanceMap getDistances() {
-        return distances;
-    }
-
-    public List<Cluster> getClusters() {
-        return clusters;
-    }
-
-    public HierarchyBuilder(List<Cluster> clusters, DistanceMap distances) {
+    public ClusterHierarchy(List<Cluster> clusters, MappedDistances distances) {
         this.clusters = clusters;
         this.distances = distances;
     }
 
-    /**
-     * Returns Flattened clusters, i.e. clusters that are at least apart by a given threshold
-     * @param linkageStrategy
-     * @param threshold
-     * @return flat list of clusters
-     */
-    public List<Cluster> flatAgg(LinkageStrategy linkageStrategy, Double threshold)
-    {
-        while((!isTreeComplete()) && (distances.minDist() != null) && (distances.minDist() <= threshold))
-        {
-            //System.out.println("Cluster Distances: " + distances.toString());
-            //System.out.println("Cluster Size: " + clusters.size());
-            agglomerate(linkageStrategy);
-        }
 
-        //System.out.println("Final MinDistance: " + distances.minDist());
-        //System.out.println("Tree complete: " + isTreeComplete());
-        return clusters;
-    }
-
-    public void agglomerate(LinkageStrategy linkageStrategy) {
+    /*
+    * combines the cluster
+    * */
+    public void agglomerate(Edge linkageStrategy) {
         ClusterPair minDistLink = distances.removeFirst();
         if (minDistLink != null) {
             clusters.remove(minDistLink.getrCluster());

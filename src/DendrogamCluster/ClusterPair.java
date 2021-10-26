@@ -1,7 +1,10 @@
 
 
-package Cluster;
+package DendrogamCluster;
 
+/*
+* the pairing of Clusters till one over arching exist
+* */
 public class ClusterPair implements Comparable<ClusterPair> {
 
     private Cluster lCluster;
@@ -9,12 +12,6 @@ public class ClusterPair implements Comparable<ClusterPair> {
     private Double linkageDistance;
 
     public ClusterPair(){
-    }
-
-    public ClusterPair(Cluster left, Cluster right, Double distance) {
-        lCluster = left;
-        rCluster = right;
-        linkageDistance = distance;
     }
 
     public Cluster getOtherCluster(Cluster c) {
@@ -45,14 +42,6 @@ public class ClusterPair implements Comparable<ClusterPair> {
         this.linkageDistance = distance;
     }
 
-    /**
-     * @return a new ClusterPair with the two left/right inverted
-     */
-    public ClusterPair reverse() {
-        return new ClusterPair(getrCluster(), getlCluster(), getLinkageDistance());
-    }
-
-
 
     @Override
     public int compareTo(ClusterPair o) {
@@ -75,7 +64,6 @@ public class ClusterPair implements Comparable<ClusterPair> {
     public Cluster agglomerate(String name) {
         Cluster cluster = new Cluster(name);
         cluster.setDistance(new Distance(getLinkageDistance()));
-        //New clusters will track their children's leaf names; i.e. each cluster knows what part of the original data it contains
         cluster.appendLeafNames(lCluster.getLeafNames());
         cluster.appendLeafNames(rCluster.getLeafNames());
         cluster.addChild(lCluster);

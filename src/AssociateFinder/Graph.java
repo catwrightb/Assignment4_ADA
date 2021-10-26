@@ -1,6 +1,9 @@
 package AssociateFinder;
 import java.util.List;
 
+/*
+* Simple Graph class to create network for the associate finder
+* */
 public class Graph {
     private final List<Vertex> vertexes;
     private final List<Edge> edges;

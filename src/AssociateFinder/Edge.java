@@ -1,5 +1,10 @@
 package AssociateFinder;
 
+/*
+* Edges of the network
+* need a source, destination and weight
+* also need to name the edge
+* */
 public class Edge  {
     private final String id;
     private final Vertex source;

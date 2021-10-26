@@ -1,13 +1,10 @@
-package Cluster;
+package DendrogamCluster;
 
 import java.util.Collection;
 
-interface LinkageStrategy {
-
-    public Distance calculateDistance(Collection<Distance> distances);
-}
-
-
+/*
+* distance and linkage classes for the distance the edges between clusters
+* */
 class Distance implements Comparable<Distance>, Cloneable {
 
     private Double distance;
@@ -30,9 +27,6 @@ class Distance implements Comparable<Distance>, Cloneable {
         return distance;
     }
 
-    public void setDistance(Double distance) {
-        this.distance = distance;
-    }
 
     public Double getWeight() {
         return weight;
@@ -42,9 +36,6 @@ class Distance implements Comparable<Distance>, Cloneable {
         this.weight = weight;
     }
 
-    public boolean isNaN() {
-        return distance == null || distance.isNaN();
-    }
 
     @Override
     public int compareTo(Distance distance) {
@@ -58,9 +49,8 @@ class Distance implements Comparable<Distance>, Cloneable {
 }
 
 
-public class Linkage implements LinkageStrategy {
+public class Edge {
 
-    @Override
     public Distance calculateDistance(Collection<Distance> distances) {
         double max = Double.NaN;
 

@@ -1,16 +1,16 @@
 package AssociateFinder;
 
+/*
+* Network vertexes use a id and name to create each vertex
+* */
 public class Vertex {
-    final private String id;
-    final private String name;
+    final private String id; //hashcode
+    final private String name; //name of vertex
 
 
     public Vertex(String id, String name) {
         this.id = id;
         this.name = name;
-    }
-    public String getId() {
-        return id;
     }
 
     public String getName() {
@@ -33,6 +33,7 @@ public class Vertex {
             return false;
         if (getClass() != obj.getClass())
             return false;
+
         Vertex other = (Vertex) obj;
         if (id == null) {
             if (other.id != null)
